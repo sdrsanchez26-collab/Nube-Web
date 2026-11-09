@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+    <title>Práctica y código · Del Código a la Nube</title>
+    <meta
+      name="description"
+      content="Ejemplos de funciones serverless, Docker, infraestructura como código, seguridad y un simulador de elasticidad."
+    />
+    <link rel="icon" type="image/jpeg" href="IMG/logo.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="CSS/styles.css" />
+  </head>
+  <body>
+    
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <header class="site-header">
+      <div class="wrap site-header__inner">
+        <a class="brand" href="index.html" aria-label="Del Código a la Nube, ir al inicio">
+          <img src="IMG/logo.jpg" alt="" width="44" height="44" />
+          <span class="brand__text">
+            <span class="brand__name">Del Código a la Nube</span>
+            <span class="brand__tag">Programación en la nube · Desarrollo de Software V</span>
+          </span>
+        </a>
+      </div>
+    </header>
+
+    <nav class="site-nav" aria-label="Navegación principal">
+      <div class="wrap site-nav__inner">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu">☰ Menú</button>
+        <ul class="nav-list" id="menu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="fundamentos.html">Fundamentos</a></li>
+          <li><a href="modelos.html">Modelos</a></li>
+          <li><a href="proveedores.html">Proveedores</a></li>
+          <li><a href="practica.html" aria-current="page">Práctica</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+          <li><a href="creador.html">Creador</a></li>
+        </ul>
+      </div>
+    </nav>
+    <nav class="crumbs wrap" aria-label="Ruta de navegación">
+      <a href="index.html">Inicio</a> / <span aria-current="page">Práctica</span>
+    </nav>
+    <main id="contenido">
+      <section class="section">
+        <div class="wrap">
+          <div class="section__head">
+            <span class="eyebrow">04 · Práctica</span>
+            <h1 style="font-size: clamp(2rem, 4vw, 3rem)">De la teoría al código</h1>
+            <p>
+              Ejemplos breves de cómo se programa y se opera en la nube: funciones, contenedores,
+              infraestructura como código, seguridad y elasticidad.
+            </p>
+          </div>
+
+          <aside class="callout reveal">
+            <strong>Este mismo sitio ya vive en la nube</strong>GitHub Pages es hosting estático gestionado:
+            tú subes archivos y la plataforma se ocupa de servidores, certificados HTTPS y distribución. Es un
+            buen primer paso hacia el modelo PaaS.
+          </aside>
+          <div class="code">
+            <div class="code__label">
+              <span>Terminal · publicar en GitHub Pages</span
+              ><button class="code__copy" type="button">Copiar</button>
+            </div>
+            <pre><code>git init
+git add .
+git commit -m "Primera versión del sitio"
+git branch -M main
+git remote add origin https://github.com/USUARIO/REPOSITORIO.git
+git push -u origin main
+# Luego: Settings → Pages → Branch: main / (root) → Save</code></pre>
+          </div>
+
+          <h2 class="mt-2">1. Una función serverless</h2>
+          <p>
+            Esta función responde a una petición HTTP. No hay servidor que administrar y solo se paga cuando
+            alguien la invoca.
+          </p>
+          <div class="code">
+            <div class="code__label">
+              <span>Python · AWS Lambda (handler.py)</span
+              ><button class="code__copy" type="button">Copiar</button>
+            </div>
+            <pre><code>import json
+
+def lambda_handler(event, context):
+    # Lee el parámetro ?nombre=... de la URL (si existe)
+    params = event.get("queryStringParameters") or {}
+    nombre = params.get("nombre", "mundo")
+
+    return {
+        "statusCode": 200,
+        "headers": {"Content-Type": "application/json"},
+        "body": json.dumps({"mensaje": f"Hola, {nombre}, desde la nube"}),
+    }</code></pre>
+          </div>
+
+          <h2 class="mt-2">2. Un contenedor con Docker</h2>
+          <p>Un contenedor garantiza que tu aplicación corra igual en tu portátil y en cualquier nube.</p>
+          <div class="code">
+            <div class="code__label">
+              <span>Dockerfile</span><button class="code__copy" type="button">Copiar</button>
+            </div>
+            <pre><code># Imagen base ligera con un servidor web
+FROM nginx:alpine
+
+# Copia los archivos de tu sitio al directorio público
+COPY . /usr/share/nginx/html
+
+EXPOSE 80</code></pre>
+          </div>
+          <div class="code">
+            <div class="code__label">
+              <span>Terminal</span><button class="code__copy" type="button">Copiar</button>
+            </div>
+            <pre><code>docker build -t mi-sitio .
+docker run -d -p 8080:80 mi-sitio
+# Abre http://localhost:8080 en tu navegador</code></pre>
+          </div>
+
+          <h2 class="mt-2">3. Infraestructura como código</h2>
+          <p>
+            En vez de crear recursos con clics, los describes en archivos. Así puedes revisarlos, versionarlos
+            y repetirlos.
+          </p>
+          <div class="code">
+            <div class="code__label">
+              <span>Terraform · infraestructura como código</span
+              ><button class="code__copy" type="button">Copiar</button>
+            </div>
+            <pre><code>terraform {
+  required_providers {
+    aws = { source = "hashicorp/aws" }
+  }
+}
+
+provider "aws" {
+  region = "us-east-1"
+}
+
+# Un bucket de almacenamiento definido en texto, versionable en Git
+resource "aws_s3_bucket" "sitio" {
+  bucket = "mi-sitio-demo-12345"
+  tags   = { proyecto = "parcial-2" }
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tint">
+        <div class="wrap">
+          <div class="section__head reveal">
+            <span class="eyebrow">Flujo de trabajo</span>
+            <h2>CI/CD: del commit a producción</h2>
+          </div>
+          <div class="grid grid--4">
+            <div class="card card--amber reveal">
+              <span class="card__num">PASO 1</span>
+              <h3>Código</h3>
+              <p>Haces commit y push al repositorio.</p>
+            </div>
+            <div class="card card--amber reveal">
+              <span class="card__num">PASO 2</span>
+              <h3>Pruebas</h3>
+              <p>Se ejecutan pruebas automáticas.</p>
+            </div>
+            <div class="card card--amber reveal">
+              <span class="card__num">PASO 3</span>
+              <h3>Construcción</h3>
+              <p>Se genera el artefacto o la imagen.</p>
+            </div>
+            <div class="card card--amber reveal">
+              <span class="card__num">PASO 4</span>
+              <h3>Despliegue</h3>
+              <p>Se publica en la nube sin intervención manual.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="wrap">
+          <div class="section__head reveal">
+            <span class="eyebrow">Seguridad</span>
+            <h2>Lista de verificación mínima</h2>
+          </div>
+          <div class="grid grid--2">
+            <div class="card card--amber reveal">
+              <h3>Identidad y acceso</h3>
+              <ul>
+                <li>Activa MFA en todas las cuentas.</li>
+                <li>No uses la cuenta raíz para el trabajo diario.</li>
+                <li>Aplica el principio de mínimo privilegio.</li>
+                <li>Nunca subas llaves o contraseñas a Git.</li>
+              </ul>
+            </div>
+            <div class="card card--amber reveal">
+              <h3>Datos y red</h3>
+              <ul>
+                <li>Cifra los datos en reposo y en tránsito (HTTPS).</li>
+                <li>No expongas almacenamiento ni bases de datos al público.</li>
+                <li>Activa registros y alertas.</li>
+                <li>Haz copias de seguridad y pruébalas.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tint">
+        <div class="wrap">
+          <div class="section__head reveal">
+            <span class="eyebrow">Elasticidad</span>
+            <h2>Simulador de elasticidad</h2>
+            <p>
+              Mueve el control de usuarios y observa cómo la nube enciende o apaga servidores según la
+              demanda. Cada servidor atiende hasta 1 000 usuarios a la vez.
+            </p>
+          </div>
+          <div class="elastic reveal">
+            <div class="elastic__panel">
+              <fieldset class="plain">
+                <legend class="sr-only">Modo de la infraestructura</legend>
+                <div class="mode">
+                  <label class="mode__opt"
+                    ><input type="radio" name="e-mode" value="elastico" checked /><span
+                      >Con elasticidad</span
+                    ></label
+                  >
+                  <label class="mode__opt"
+                    ><input type="radio" name="e-mode" value="fijo" /><span>3 servidores fijos</span></label
+                  >
+                </div>
+              </fieldset>
+              <div class="field">
+                <label for="e-users">Usuarios conectados: <b id="e-users-v">1 500</b></label>
+                <input
+                  type="range"
+                  id="e-users"
+                  name="usuarios"
+                  min="0"
+                  max="10000"
+                  step="100"
+                  value="1500"
+                />
+                <small>De 0 a 10 000 usuarios.</small>
+              </div>
+              <div class="presets" role="group" aria-label="Escenarios de ejemplo">
+                <button class="chip" type="button" data-users="200">Madrugada</button>
+                <button class="chip" type="button" data-users="2500">Día normal</button>
+                <button class="chip" type="button" data-users="9000">Oferta del día</button>
+              </div>
+              <dl class="readout">
+                <div>
+                  <dt>Servidores encendidos</dt>
+                  <dd id="e-on">2 de 10</dd>
+                </div>
+                <div>
+                  <dt>Capacidad total</dt>
+                  <dd id="e-cap">2 000 usuarios</dd>
+                </div>
+                <div>
+                  <dt>Uso de la capacidad</dt>
+                  <dd id="e-use">75 %</dd>
+                </div>
+                <div>
+                  <dt>Estado</dt>
+                  <dd><span id="e-state" class="state state--ok">Estable</span></dd>
+                </div>
+              </dl>
+              <div class="meter" aria-hidden="true">
+                <div id="e-bar" class="meter__fill meter__fill--ok"></div>
+              </div>
+            </div>
+            <div
+              class="elastic__stage"
+              id="e-stage"
+              role="img"
+              aria-label="Diez espacios para servidores; los encendidos aparecen iluminados"
+            >
+              <div class="server" aria-hidden="true"><i></i><i></i><span>1</span></div>
+              <div class="server" aria-hidden="true"><i></i><i></i><span>2</span></div>
+              <div class="server" aria-hidden="true"><i></i><i></i><span>3</span></div>
+              <div class="server" aria-hidden="true"><i></i><i></i><span>4</span></div>
+              <div class="server" aria-hidden="true"><i></i><i></i><span>5</span></div>
+              <div class="server" aria-hidden="true"><i></i><i></i><span>6</span></div>
+              <div class="server" aria-hidden="true"><i></i><i></i><span>7</span></div>
+              <div class="server" aria-hidden="true"><i></i><i></i><span>8</span></div>
+              <div class="server" aria-hidden="true"><i></i><i></i><span>9</span></div>
+              <div class="server" aria-hidden="true"><i></i><i></i><span>10</span></div>
+            </div>
+          </div>
+          <p class="status elastic__msg" id="e-msg" role="status" aria-live="polite"></p>
+          <aside class="callout reveal">
+            <strong>¿Qué demuestra?</strong>La elasticidad permite pagar solo por lo que se usa: en la
+            madrugada hay pocos servidores y en una oferta la nube suma más. Con servidores fijos, o sobra
+            capacidad o faltan servidores.
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <button class="to-top" type="button" aria-label="Volver al inicio de la página">↑</button>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="footer__grid">
+          <div>
+            <h2 class="footer-h">Del Código a la Nube</h2>
+            <p>
+              Sitio educativo sobre programación en la nube (Cloud Computing), creado como Parcial 2 de
+              Desarrollo de Software V.
+            </p>
+          </div>
+          <div>
+            <h2 class="footer-h">Explora</h2>
+            <ul>
+              <li><a href="fundamentos.html">Fundamentos</a></li>
+              <li><a href="modelos.html">Modelos IaaS, PaaS, SaaS</a></li>
+              <li><a href="proveedores.html">Proveedores</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="footer-h">Más</h2>
+            <ul>
+              <li><a href="practica.html">Práctica y código</a></li>
+              <li><a href="quiz.html">Quiz</a></li>
+              <li><a href="creador.html">Sobre el creador</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <span>© 2026 Del Código a la Nube · Universidad Tecnológica de Panamá</span>
+          <span>Facultad de Ingeniería de Sistemas Computacionales</span>
+        </div>
+      </div>
+    </footer>
+    <script src="JS/main.js" defer></script>
+    <script src="JS/elasticidad.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+    <title>Proveedores de nube · Del Código a la Nube</title>
+    <meta
+      name="description"
+      content="Comparación entre AWS, Microsoft Azure y Google Cloud con tabla de equivalencias de servicios."
+    />
+    <link rel="icon" type="image/jpeg" href="IMG/logo.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="CSS/styles.css" />
+  </head>
+  <body>
+   
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <header class="site-header">
+      <div class="wrap site-header__inner">
+        <a class="brand" href="index.html" aria-label="Del Código a la Nube, ir al inicio">
+          <img src="IMG/logo.jpg" alt="" width="44" height="44" />
+          <span class="brand__text">
+            <span class="brand__name">Del Código a la Nube</span>
+            <span class="brand__tag">Programación en la nube · Desarrollo de Software V</span>
+          </span>
+        </a>
+      </div>
+    </header>
+
+    <nav class="site-nav" aria-label="Navegación principal">
+      <div class="wrap site-nav__inner">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu">☰ Menú</button>
+        <ul class="nav-list" id="menu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="fundamentos.html">Fundamentos</a></li>
+          <li><a href="modelos.html">Modelos</a></li>
+          <li><a href="proveedores.html" aria-current="page">Proveedores</a></li>
+          <li><a href="practica.html">Práctica</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+          <li><a href="creador.html">Creador</a></li>
+        </ul>
+      </div>
+    </nav>
+    <nav class="crumbs wrap" aria-label="Ruta de navegación">
+      <a href="index.html">Inicio</a> / <span aria-current="page">Proveedores</span>
+    </nav>
+    
+    <main id="contenido">
+     
+      <section class="section">
+        <div class="wrap">
+          <div class="section__head">
+            <span class="eyebrow">03 · Proveedores</span>
+            <h1 style="font-size: clamp(2rem, 4vw, 3rem)">Los tres grandes y cómo se equivalen</h1>
+            <p>
+              Aunque los nombres cambian, los servicios básicos son muy parecidos. Aprender uno te ayuda a
+              entender los demás.
+            </p>
+          </div>
+          <div class="grid grid--3">
+            <div class="card card--amber reveal">
+              <h3>Amazon Web Services</h3>
+              <p>El pionero y el de catálogo más amplio. Inició la nube pública moderna en 2006.</p>
+              <p class="badges">
+                <span class="badge badge--amber">EC2</span>
+                <span class="badge badge--amber">S3</span>
+                <span class="badge badge--amber">Lambda</span>
+                <span class="badge badge--amber">RDS</span>
+              </p>
+              <p><strong>Destaca por:</strong> madurez, variedad de servicios y comunidad enorme.</p>
+            </div>
+            <div class="card card--amber reveal">
+              <h3>Microsoft Azure</h3>
+              <p>Fuerte integración con Windows, .NET, Active Directory y Microsoft 365.</p>
+              <p class="badges">
+                <span class="badge">Virtual Machines</span>
+                <span class="badge">Blob Storage</span>
+                <span class="badge">Functions</span>
+                <span class="badge">Azure SQL</span>
+              </p>
+              <p><strong>Destaca por:</strong> entornos empresariales y soluciones híbridas.</p>
+            </div>
+            <div class="card card--amber reveal">
+              <h3>Google Cloud</h3>
+              <p>Nació de la infraestructura interna de Google. Muy buena en datos, IA y Kubernetes.</p>
+              <p class="badges">
+                <span class="badge">Compute Engine</span>
+                <span class="badge">Cloud Storage</span>
+                <span class="badge">BigQuery</span>
+                <span class="badge">GKE</span>
+              </p>
+              <p><strong>Destaca por:</strong> analítica, aprendizaje automático y contenedores.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tint">
+        <div class="wrap">
+          <div class="section__head reveal">
+            <span class="eyebrow">Tabla de equivalencias</span>
+            <h2>Mismo concepto, distinto nombre</h2>
+          </div>
+          <div class="table-wrap reveal">
+            <table>
+              <caption>
+                Servicios equivalentes entre proveedores
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Categoría</th>
+                  <th scope="col">AWS</th>
+                  <th scope="col">Azure</th>
+                  <th scope="col">Google Cloud</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Máquinas virtuales</th>
+                  <td>EC2</td>
+                  <td>Virtual Machines</td>
+                  <td>Compute Engine</td>
+                </tr>
+                <tr>
+                  <th scope="row">Almacenamiento de objetos</th>
+                  <td>S3</td>
+                  <td>Blob Storage</td>
+                  <td>Cloud Storage</td>
+                </tr>
+                <tr>
+                  <th scope="row">Funciones serverless</th>
+                  <td>Lambda</td>
+                  <td>Functions</td>
+                  <td>Cloud Functions / Cloud Run functions</td>
+                </tr>
+                <tr>
+                  <th scope="row">Base de datos relacional gestionada</th>
+                  <td>RDS</td>
+                  <td>Azure SQL Database</td>
+                  <td>Cloud SQL</td>
+                </tr>
+                <tr>
+                  <th scope="row">Base de datos NoSQL</th>
+                  <td>DynamoDB</td>
+                  <td>Cosmos DB</td>
+                  <td>Firestore / Bigtable</td>
+                </tr>
+                <tr>
+                  <th scope="row">Kubernetes gestionado</th>
+                  <td>EKS</td>
+                  <td>AKS</td>
+                  <td>GKE</td>
+                </tr>
+                <tr>
+                  <th scope="row">Mensajería y colas</th>
+                  <td>SQS / SNS</td>
+                  <td>Service Bus</td>
+                  <td>Pub/Sub</td>
+                </tr>
+                <tr>
+                  <th scope="row">Gestión de identidades</th>
+                  <td>IAM</td>
+                  <td>Microsoft Entra ID</td>
+                  <td>Cloud IAM</td>
+                </tr>
+                <tr>
+                  <th scope="row">Red de distribución (CDN)</th>
+                  <td>CloudFront</td>
+                  <td>Azure Front Door / CDN</td>
+                  <td>Cloud CDN</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="muted mt-2">
+            Los catálogos cambian con frecuencia: consulta siempre la documentación oficial de cada proveedor
+            antes de decidir.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="wrap">
+          <div class="section__head reveal">
+            <span class="eyebrow">Cómo decidir</span>
+            <h2>Criterios para elegir proveedor</h2>
+          </div>
+          <div class="grid grid--4">
+            <div class="card reveal">
+              <span class="card__ico" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <circle cx="12" cy="12" r="9" />
+                  <path
+                    d="M14.6 9.3A2.7 2.2 0 0 0 12 8c-1.5 0-2.6.8-2.6 2s1.1 1.7 2.6 2 2.6.8 2.6 2-1.1 2-2.6 2a2.7 2.2 0 0 1-2.6-1.3"
+                  />
+                  <path d="M12 6v2M12 16v2" /></svg
+              ></span>
+              <h3>Costo</h3>
+              <p>Compara precios por uso, descuentos por compromiso y capa gratuita.</p>
+            </div>
+            <div class="card reveal">
+              <span class="card__ico" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M12 21s7-6.2 7-11.5a7 7 0 0 0-14 0C5 14.8 12 21 12 21z" />
+                  <circle cx="12" cy="9.5" r="2.5" /></svg
+              ></span>
+              <h3>Ubicación</h3>
+              <p>Elige regiones cercanas a tus usuarios para reducir la latencia.</p>
+            </div>
+            <div class="card reveal">
+              <span class="card__ico" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <circle cx="6" cy="6" r="2.5" />
+                  <circle cx="18" cy="6" r="2.5" />
+                  <circle cx="12" cy="18" r="2.5" />
+                  <path d="M8.5 6h7M7.2 8.2l3.8 7.5M16.8 8.2l-3.8 7.5" /></svg
+              ></span>
+              <h3>Ecosistema</h3>
+              <p>Verifica compatibilidad con tu lenguaje, herramientas y equipo.</p>
+            </div>
+            <div class="card reveal">
+              <span class="card__ico" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M12 3l8 3v5.5c0 4.5-3.2 8-8 9.5-4.8-1.5-8-5-8-9.5V6l8-3z" />
+                  <path d="M8.5 12l2.5 2.5 4.5-5" /></svg
+              ></span>
+              <h3>Cumplimiento</h3>
+              <p>Revisa certificaciones y reglas sobre dónde se almacenan los datos.</p>
+            </div>
+          </div>
+          <aside class="callout callout--ok reveal">
+            <strong>Para estudiantes</strong>Los tres proveedores ofrecen capas gratuitas o créditos
+            educativos. Los términos cambian, así que revisa las condiciones vigentes y configura alertas de
+            presupuesto antes de crear recursos.
+          </aside>
+          <aside class="callout callout--warn reveal">
+            <strong>Cuidado con la factura</strong>Un recurso olvidado sigue generando cobros. Etiqueta tus
+            recursos y elimina lo que ya no uses.
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <button class="to-top" type="button" aria-label="Volver al inicio de la página">↑</button>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="footer__grid">
+          <div>
+            <h2 class="footer-h">Del Código a la Nube</h2>
+            <p>
+              Sitio educativo sobre programación en la nube (Cloud Computing), creado como Parcial 2 de
+              Desarrollo de Software V.
+            </p>
+          </div>
+          <div>
+            <h2 class="footer-h">Explora</h2>
+            <ul>
+              <li><a href="fundamentos.html">Fundamentos</a></li>
+              <li><a href="modelos.html">Modelos IaaS, PaaS, SaaS</a></li>
+              <li><a href="proveedores.html">Proveedores</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="footer-h">Más</h2>
+            <ul>
+              <li><a href="practica.html">Práctica y código</a></li>
+              <li><a href="quiz.html">Quiz</a></li>
+              <li><a href="creador.html">Sobre el creador</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <span>© 2026 Del Código a la Nube · Universidad Tecnológica de Panamá</span>
+          <span>Facultad de Ingeniería de Sistemas Computacionales</span>
+        </div>
+      </div>
+    </footer>
+    <script src="JS/main.js" defer></script>
+  </body>
+</html>

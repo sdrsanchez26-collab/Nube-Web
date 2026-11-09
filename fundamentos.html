@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+    <title>Fundamentos de la nube · Del Código a la Nube</title>
+    <meta
+      name="description"
+      content="Características, virtualización, regiones, responsabilidad compartida y glosario de computación en la nube."
+    />
+    <link rel="icon" type="image/jpeg" href="IMG/logo.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="CSS/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <header class="site-header">
+      <div class="wrap site-header__inner">
+        <a class="brand" href="index.html" aria-label="Del Código a la Nube, ir al inicio">
+          <img src="IMG/logo.jpg" alt="" width="44" height="44" />
+          <span class="brand__text">
+            <span class="brand__name">Del Código a la Nube</span>
+            <span class="brand__tag">Programación en la nube · Desarrollo de Software V</span>
+          </span>
+        </a>
+      </div>
+    </header>
+
+    <nav class="site-nav" aria-label="Navegación principal">
+      <div class="wrap site-nav__inner">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu">☰ Menú</button>
+        <ul class="nav-list" id="menu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="fundamentos.html" aria-current="page">Fundamentos</a></li>
+          <li><a href="modelos.html">Modelos</a></li>
+          <li><a href="proveedores.html">Proveedores</a></li>
+          <li><a href="practica.html">Práctica</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+          <li><a href="creador.html">Creador</a></li>
+        </ul>
+      </div>
+    </nav>
+    <nav class="crumbs wrap" aria-label="Ruta de navegación">
+      <a href="index.html">Inicio</a> / <span aria-current="page">Fundamentos</span>
+    </nav>
+    
+    <main id="contenido">
+      
+      <section class="section">
+        <div class="wrap">
+          <div class="section__head">
+            <span class="eyebrow">01 · Fundamentos</span>
+            <h1 style="font-size: clamp(2rem, 4vw, 3rem)">
+              Lo que debes entender antes de programar en la nube
+            </h1>
+            <p>
+              Programar en la nube es escribir software que se ejecuta, se almacena y se escala sobre recursos
+              que pertenecen a un proveedor y que consumes a través de internet.
+            </p>
+          </div>
+
+          <h2>Las 5 características esenciales</h2>
+          <p class="muted">Según el NIST, un servicio solo es «nube» si cumple estas cinco propiedades.</p>
+          <div class="grid grid--3 mt-2">
+            <div class="card card--amber reveal">
+              <span class="card__num">01</span>
+              <h3>Autoservicio bajo demanda</h3>
+              <p>Creas servidores o bases de datos tú mismo desde una consola o API, sin llamar a nadie.</p>
+            </div>
+            <div class="card card--amber reveal">
+              <span class="card__num">02</span>
+              <h3>Amplio acceso por red</h3>
+              <p>
+                Los recursos se usan desde cualquier dispositivo con internet: portátil, móvil o servidor.
+              </p>
+            </div>
+            <div class="card card--amber reveal">
+              <span class="card__num">03</span>
+              <h3>Agrupación de recursos</h3>
+              <p>El proveedor comparte su hardware entre muchos clientes, aislándolos entre sí.</p>
+            </div>
+            <div class="card card--amber reveal">
+              <span class="card__num">04</span>
+              <h3>Elasticidad rápida</h3>
+              <p>Los recursos crecen o se reducen en minutos, incluso de forma automática.</p>
+            </div>
+            <div class="card card--amber reveal">
+              <span class="card__num">05</span>
+              <h3>Servicio medido</h3>
+              <p>
+                Se mide el consumo y se factura por uso: horas de cómputo, GB almacenados, datos transferidos.
+              </p>
+            </div>
+            <aside class="callout reveal" style="margin: 0">
+              <strong>Idea clave</strong>Si tienes que comprar hardware o esperar semanas por un servidor, no
+              es nube.
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tint">
+        <div class="wrap split">
+          <div class="reveal">
+            <span class="eyebrow">Cómo funciona por dentro</span>
+            <h2>Virtualización y contenedores</h2>
+            <p>
+              Un servidor físico muy potente se divide en muchas <strong>máquinas virtuales</strong> gracias a
+              un hipervisor. Cada cliente cree tener su propia máquina, aunque comparte el hardware con otros.
+            </p>
+            <p>
+              Los <strong>contenedores</strong> van un paso más allá: empaquetan solo la aplicación y sus
+              dependencias, y comparten el núcleo del sistema operativo. Arrancan en segundos y consumen menos
+              recursos que una VM.
+            </p>
+            <ul>
+              <li>
+                <strong>VM:</strong> aislamiento fuerte, sistema operativo completo, arranque en minutos.
+              </li>
+              <li><strong>Contenedor:</strong> ligero y portable, ideal para microservicios.</li>
+              <li><strong>Función serverless:</strong> código que corre solo cuando llega un evento.</li>
+            </ul>
+          </div>
+          <figure class="fig-box reveal">
+            <img
+              src="IMG/regiones.jpg"
+              alt="Una región con tres zonas de disponibilidad: la zona B falla y las zonas A y C siguen funcionando"
+              width="640"
+              height="480"
+              loading="lazy"
+            />
+            <figcaption>
+              Una región agrupa varias zonas de disponibilidad: si una falla, las otras siguen funcionando.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="wrap">
+          <div class="section__head reveal">
+            <span class="eyebrow">Seguridad</span>
+            <h2>Modelo de responsabilidad compartida</h2>
+            <p>
+              El proveedor protege la nube, tú proteges lo que pones en la nube. Confundir
+              esta frontera es una de las causas más comunes de filtraciones de datos.
+            </p>
+          </div>
+          <div class="table-wrap reveal">
+            <table>
+              <caption>
+                ¿Quién es responsable de qué?
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Elemento</th>
+                  <th scope="col">Proveedor</th>
+                  <th scope="col">Cliente</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Centros de datos y hardware</th>
+                  <td class="yes">Sí</td>
+                  <td class="no">No</td>
+                </tr>
+                <tr>
+                  <th scope="row">Virtualización y red base</th>
+                  <td class="yes">Sí</td>
+                  <td class="no">No</td>
+                </tr>
+                <tr>
+                  <th scope="row">Sistema operativo de tus VM (IaaS)</th>
+                  <td class="no">No</td>
+                  <td class="yes">Sí</td>
+                </tr>
+                <tr>
+                  <th scope="row">Configuración de permisos y accesos</th>
+                  <td class="no">No</td>
+                  <td class="yes">Sí</td>
+                </tr>
+                <tr>
+                  <th scope="row">Tus datos y su cifrado</th>
+                  <td class="no">No</td>
+                  <td class="yes">Sí</td>
+                </tr>
+                <tr>
+                  <th scope="row">Código de tu aplicación</th>
+                  <td class="no">No</td>
+                  <td class="yes">Sí</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tint">
+        <div class="wrap">
+          <div class="section__head reveal">
+            <span class="eyebrow">Balance</span>
+            <h2>Ventajas y retos</h2>
+          </div>
+          <div class="grid grid--2">
+            <div class="card card--amber reveal">
+              <h3>Ventajas</h3>
+              <ul>
+                <li>Sin inversión inicial en hardware.</li>
+                <li>Escalado rápido según la demanda.</li>
+                <li>Alcance global y alta disponibilidad.</li>
+                <li>Acceso a servicios avanzados (IA, analítica, IoT).</li>
+                <li>Menos tareas de mantenimiento.</li>
+              </ul>
+            </div>
+            <div class="card card--amber reveal">
+              <h3>Retos</h3>
+              <ul>
+                <li>Costos que crecen si no se monitorean.</li>
+                <li>Dependencia del proveedor (<em>vendor lock-in</em>).</li>
+                <li>Seguridad mal configurada por el cliente.</li>
+                <li>Necesidad de conexión a internet estable.</li>
+                <li>Cumplimiento normativo sobre dónde residen los datos.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="wrap">
+          <div class="section__head reveal">
+            <span class="eyebrow">Consulta rápida</span>
+            <h2>Glosario</h2>
+            <p>Escribe una palabra para filtrar los términos.</p>
+          </div>
+          <div class="search">
+            <label class="sr-only" for="glosario-q">Buscar en el glosario</label>
+            <input
+              type="search"
+              id="glosario-q"
+              placeholder="Ej.: región, contenedor, IAM…"
+              autocomplete="off"
+            />
+          </div>
+          <p class="status" id="glosario-estado" role="status" aria-live="polite"></p>
+          <dl class="glossary" id="glosario">
+            <div>
+              <dt>Elasticidad</dt>
+              <dd>Capacidad de aumentar o reducir recursos automáticamente según la demanda.</dd>
+            </div>
+            <div>
+              <dt>Escalabilidad</dt>
+              <dd>
+                Habilidad de un sistema para manejar más carga, ya sea vertical (más potencia) u horizontal
+                (más instancias).
+              </dd>
+            </div>
+            <div>
+              <dt>Región</dt>
+              <dd>Ubicación geográfica que agrupa varios centros de datos del proveedor.</dd>
+            </div>
+            <div>
+              <dt>Zona de disponibilidad (AZ)</dt>
+              <dd>Centro de datos o grupo aislado dentro de una región, con energía y red propias.</dd>
+            </div>
+            <div>
+              <dt>Máquina virtual (VM)</dt>
+              <dd>Computadora simulada por software que corre sobre hardware compartido.</dd>
+            </div>
+            <div>
+              <dt>Contenedor</dt>
+              <dd>
+                Paquete ligero que incluye la aplicación y sus dependencias; comparte el núcleo del sistema
+                operativo.
+              </dd>
+            </div>
+            <div>
+              <dt>Serverless</dt>
+              <dd>
+                Modelo en el que el proveedor gestiona los servidores y tú solo despliegas código o funciones.
+              </dd>
+            </div>
+            <div>
+              <dt>FaaS</dt>
+              <dd>Functions as a Service: ejecutas funciones individuales en respuesta a eventos.</dd>
+            </div>
+            <div>
+              <dt>IAM</dt>
+              <dd>Gestión de identidades y accesos: define quién puede hacer qué sobre cada recurso.</dd>
+            </div>
+            <div>
+              <dt>CDN</dt>
+              <dd>
+                Red de distribución de contenido: copias de tus archivos en servidores cercanos al usuario.
+              </dd>
+            </div>
+            <div>
+              <dt>Balanceador de carga</dt>
+              <dd>Reparte las peticiones entre varias instancias para evitar sobrecargas.</dd>
+            </div>
+            <div>
+              <dt>Latencia</dt>
+              <dd>Tiempo que tarda un dato en viajar entre el usuario y el servidor.</dd>
+            </div>
+            <div>
+              <dt>SLA</dt>
+              <dd>Acuerdo de nivel de servicio: compromiso de disponibilidad que ofrece el proveedor.</dd>
+            </div>
+            <div>
+              <dt>Infraestructura como código (IaC)</dt>
+              <dd>Definir y crear la infraestructura con archivos de texto versionables, no con clics.</dd>
+            </div>
+            <div>
+              <dt>CI/CD</dt>
+              <dd>
+                Integración y entrega continuas: automatizar pruebas y despliegues cada vez que cambia el
+                código.
+              </dd>
+            </div>
+            <div>
+              <dt>Multicloud</dt>
+              <dd>Usar servicios de más de un proveedor de nube al mismo tiempo.</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="section section--tint">
+        <div class="wrap">
+          <div class="section__head reveal">
+            <span class="eyebrow">Dudas frecuentes</span>
+            <h2>Preguntas rápidas</h2>
+          </div>
+          <details>
+            <summary>¿Nube y hosting tradicional son lo mismo?</summary>
+            <div>
+              <p>
+                No. El hosting suele ser un plan fijo en un servidor. La nube ofrece recursos elásticos,
+                facturados por uso y administrables por API.
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary>¿Es la nube siempre más barata?</summary>
+            <div>
+              <p>
+                No necesariamente. Es más barata cuando la demanda varía o apenas empiezas. Una carga estable
+                y muy grande puede costar menos en infraestructura propia; por eso conviene medir y comparar.
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary>¿Mis datos están seguros en la nube?</summary>
+            <div>
+              <p>
+                Los proveedores invierten mucho en seguridad física y de red, pero la configuración de accesos
+                y cifrado depende de ti (responsabilidad compartida).
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary>¿Necesito saber administrar servidores para empezar?</summary>
+            <div>
+              <p>
+                No. Con PaaS o serverless puedes desplegar código sin tocar servidores. Aun así, entender cómo
+                funcionan te ayuda a diseñar mejor.
+              </p>
+            </div>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <button class="to-top" type="button" aria-label="Volver al inicio de la página">↑</button>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="footer__grid">
+          <div>
+            <h2 class="footer-h">Del Código a la Nube</h2>
+            <p>
+              Sitio educativo sobre programación en la nube (Cloud Computing), creado como Parcial 2 de
+              Desarrollo de Software V.
+            </p>
+          </div>
+          <div>
+            <h2 class="footer-h">Explora</h2>
+            <ul>
+              <li><a href="fundamentos.html">Fundamentos</a></li>
+              <li><a href="modelos.html">Modelos IaaS, PaaS, SaaS</a></li>
+              <li><a href="proveedores.html">Proveedores</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="footer-h">Más</h2>
+            <ul>
+              <li><a href="practica.html">Práctica y código</a></li>
+              <li><a href="quiz.html">Quiz</a></li>
+              <li><a href="creador.html">Sobre el creador</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <span>© 2026 Del Código a la Nube · Universidad Tecnológica de Panamá</span>
+          <span>Facultad de Ingeniería de Sistemas Computacionales</span>
+        </div>
+      </div>
+    </footer>
+    <script src="JS/main.js" defer></script>
+  </body>
+</html>

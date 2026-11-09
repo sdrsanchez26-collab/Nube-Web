@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+    <title>Programación en la nube · Del Código a la Nube</title>
+    <meta
+      name="description"
+      content="Aprende qué es la computación en la nube, sus modelos, proveedores y buenas prácticas."
+    />
+    <link rel="icon" type="image/jpeg" href="IMG/logo.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="CSS/styles.css" />
+  </head>
+  <body>
+    
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <header class="site-header">
+      <div class="wrap site-header__inner">
+        <a class="brand" href="index.html" aria-label="Del Código a la Nube, ir al inicio">
+          <img src="IMG/logo.jpg" alt="" width="44" height="44" />
+          <span class="brand__text">
+            <span class="brand__name">Del Código a la Nube</span>
+            <span class="brand__tag">Programación en la nube · Desarrollo de Software V</span>
+          </span>
+        </a>
+      </div>
+    </header>
+
+    <nav class="site-nav" aria-label="Navegación principal">
+      <div class="wrap site-nav__inner">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu">☰ Menú</button>
+        <ul class="nav-list" id="menu">
+          <li><a href="index.html" aria-current="page">Inicio</a></li>
+          <li><a href="fundamentos.html">Fundamentos</a></li>
+          <li><a href="modelos.html">Modelos</a></li>
+          <li><a href="proveedores.html">Proveedores</a></li>
+          <li><a href="practica.html">Práctica</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+          <li><a href="creador.html">Creador</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main id="contenido">
+    
+      <section class="hero">
+        <div class="wrap split">
+          <div>
+            <span class="eyebrow">Cloud Computing</span>
+            <h1>Programa donde <em>no existen</em> los límites de tu computadora.</h1>
+            <p class="hero__lead">
+              La nube te presta servidores, bases de datos y herramientas por internet, cuando los necesitas y
+              pagando solo por lo que usas. Aquí aprenderás qué es, cómo funciona y cómo empezar a usarla.
+            </p>
+            <div class="btn-row">
+              <a class="btn" href="fundamentos.html">Empezar por lo básico →</a>
+              <a class="btn btn--ghost" href="quiz.html">Probar el quiz</a>
+            </div>
+          </div>
+          <div class="hero__art">
+            <img
+              src="IMG/hero-nube.jpg"
+              alt="Nube brillante en el centro conectada a iconos de comercio, seguridad, banca, analítica, configuración y servidores"
+              width="1536"
+              height="1024"
+            />
+          </div>
+        </div>
+        <div class="wrap">
+          <div class="stats" role="list">
+            <div class="stat" role="listitem">
+              <b>5</b><span>características esenciales según el NIST</span>
+            </div>
+            <div class="stat" role="listitem">
+              <b>3</b><span>modelos de servicio: IaaS, PaaS y SaaS</span>
+            </div>
+            <div class="stat" role="listitem">
+              <b>4</b><span>modelos de despliegue: pública, privada, híbrida y comunitaria</span>
+            </div>
+            <div class="stat" role="listitem">
+              <b>3</b><span>grandes proveedores: AWS, Azure y Google Cloud</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tint">
+        <div class="wrap split">
+          <div class="reveal">
+            <span class="eyebrow">La idea en una imagen mental</span>
+            <h2>La nube es como la red eléctrica, pero para la computación.</h2>
+            <p>
+              No construyes una planta de energía para encender un foco: conectas y pagas por el consumo. Con
+              la nube sucede igual. En lugar de comprar, instalar y mantener servidores, los alquilas por
+              segundos o por horas y los devuelves cuando terminas.
+            </p>
+            <p>
+              Para quien programa, eso significa publicar una aplicación en minutos, escalar cuando llegan
+              miles de usuarios y apagar todo cuando ya no hace falta.
+            </p>
+          </div>
+          <aside class="callout reveal">
+            <strong>Definición del NIST (SP 800-145)</strong>
+            La computación en la nube es un modelo que permite acceso por red, bajo demanda y de forma cómoda,
+            a un conjunto compartido de recursos configurables (redes, servidores, almacenamiento,
+            aplicaciones y servicios) que se aprovisionan y liberan con un esfuerzo mínimo de gestión.
+          </aside>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="wrap">
+          <div class="section__head reveal">
+            <span class="eyebrow">Mapa del sitio</span>
+            <h2>¿Qué encontrarás aquí?</h2>
+            <p>
+              Cada página se enfoca en una pregunta distinta. Puedes seguir el orden o saltar a lo que
+              necesites.
+            </p>
+          </div>
+          <div class="grid grid--3">
+            <a class="card card--accent reveal" href="fundamentos.html"
+              ><span class="card__ico" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M12 3l9 5-9 5-9-5 9-5z" />
+                  <path d="M3 12.5l9 5 9-5" />
+                  <path d="M3 17l9 5 9-5" /></svg
+              ></span>
+              <h3>Fundamentos</h3>
+              <p>
+                Características, regiones, responsabilidad compartida, ventajas y glosario con buscador.
+              </p></a
+            >
+            <a class="card card--accent reveal" href="modelos.html"
+              ><span class="card__ico" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <rect x="4" y="4" width="7" height="7" rx="1.5" />
+                  <rect x="13" y="4" width="7" height="7" rx="1.5" />
+                  <rect x="4" y="13" width="7" height="7" rx="1.5" />
+                  <rect x="13" y="13" width="7" height="7" rx="1.5" /></svg
+              ></span>
+              <h3>Modelos</h3>
+              <p>IaaS, PaaS, SaaS y serverless; nube pública, privada e híbrida.</p></a
+            >
+            <a class="card card--accent reveal" href="proveedores.html"
+              ><span class="card__ico" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <rect x="5" y="3" width="14" height="18" rx="2" />
+                  <path d="M9 7h2M13 7h2M9 11h2M13 11h2M10 21v-4h4v4" /></svg
+              ></span>
+              <h3>Proveedores</h3>
+              <p>AWS, Azure y Google Cloud, con una tabla de equivalencias de servicios.</p></a
+            >
+            <a class="card card--accent reveal" href="practica.html"
+              ><span class="card__ico" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 6l-3 12" /></svg
+              ></span>
+              <h3>Práctica</h3>
+              <p>
+                Código serverless, Docker, infraestructura como código, seguridad y un simulador de
+                elasticidad.
+              </p></a
+            >
+            <a class="card card--accent reveal" href="quiz.html"
+              ><span class="card__ico" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M8 12.5l2.7 2.7L16 9.5" /></svg
+              ></span>
+              <h3>Quiz</h3>
+              <p>Ocho preguntas con retroalimentación inmediata para comprobar lo aprendido.</p></a
+            >
+            <a class="card card--accent reveal" href="creador.html"
+              ><span class="card__ico" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <circle cx="12" cy="8" r="4" />
+                  <path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" /></svg
+              ></span>
+              <h3>Creador</h3>
+              <p>Quién hizo este sitio, sus estudios y las tecnologías que usó.</p></a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tint">
+        <div class="wrap">
+          <div class="section__head reveal">
+            <span class="eyebrow">Historia</span>
+            <h2>De los servidores propios a la nube moderna</h2>
+          </div>
+          <ol class="timeline">
+            <li class="reveal">
+              <time datetime="2006">2006</time>
+              <h3>Nace la nube pública moderna</h3>
+              <p>
+                Amazon Web Services lanza S3 (almacenamiento) y EC2 (máquinas virtuales alquilables por hora).
+              </p>
+            </li>
+            <li class="reveal">
+              <time datetime="2008">2008</time>
+              <h3>Plataformas como servicio</h3>
+              <p>
+                Google presenta App Engine en vista previa, permitiendo desplegar aplicaciones sin administrar
+                servidores.
+              </p>
+            </li>
+            <li class="reveal">
+              <time datetime="2010">2010</time>
+              <h3>Microsoft Azure</h3>
+              <p>Azure queda disponible de forma general, ampliando la oferta empresarial.</p>
+            </li>
+            <li class="reveal">
+              <time datetime="2011">2011</time>
+              <h3>Definición oficial</h3>
+              <p>El NIST publica la definición de computación en la nube que aún se usa como referencia.</p>
+            </li>
+            <li class="reveal">
+              <span class="when">2013–2014</span>
+              <h3>Contenedores y orquestación</h3>
+              <p>
+                Aparecen Docker (2013) y Kubernetes (2014), que hacen portables las aplicaciones entre nubes.
+              </p>
+            </li>
+            <li class="reveal">
+              <time datetime="2014">2014</time>
+              <h3>Serverless</h3>
+              <p>AWS presenta Lambda: ejecutas funciones sin administrar servidores y pagas por ejecución.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+    </main>
+
+    <button class="to-top" type="button" aria-label="Volver al inicio de la página">↑</button>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="footer__grid">
+          <div>
+            <h2 class="footer-h">Del Código a la Nube</h2>
+            <p>
+              Sitio educativo sobre programación en la nube (Cloud Computing), creado como Parcial 2 de
+              Desarrollo de Software V.
+            </p>
+          </div>
+          <div>
+            <h2 class="footer-h">Explora</h2>
+            <ul>
+              <li><a href="fundamentos.html">Fundamentos</a></li>
+              <li><a href="modelos.html">Modelos IaaS, PaaS, SaaS</a></li>
+              <li><a href="proveedores.html">Proveedores</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="footer-h">Más</h2>
+            <ul>
+              <li><a href="practica.html">Práctica y código</a></li>
+              <li><a href="quiz.html">Quiz</a></li>
+              <li><a href="creador.html">Sobre el creador</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <span>© 2026 Del Código a la Nube · Universidad Tecnológica de Panamá</span>
+          <span>Facultad de Ingeniería de Sistemas Computacionales</span>
+        </div>
+      </div>
+    </footer>
+    <script src="JS/main.js" defer></script>
+  </body>
+</html>

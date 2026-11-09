@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+    <title>Sobre el creador · Del Código a la Nube</title>
+    <meta
+      name="description"
+      content="Reseña del creador del sitio y aplicación de las reglas de oro de Shneiderman y las heurísticas de Nielsen."
+    />
+    <link rel="icon" type="image/jpeg" href="IMG/logo.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="CSS/styles.css" />
+  </head>
+  <body>
+   
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <header class="site-header">
+      <div class="wrap site-header__inner">
+        <a class="brand" href="index.html" aria-label="Del Código a la Nube, ir al inicio">
+          <img src="IMG/logo.jpg" alt="" width="44" height="44" />
+          <span class="brand__text">
+            <span class="brand__name">Del Código a la Nube</span>
+            <span class="brand__tag">Programación en la nube · Desarrollo de Software V</span>
+          </span>
+        </a>
+      </div>
+    </header>
+
+    <nav class="site-nav" aria-label="Navegación principal">
+      <div class="wrap site-nav__inner">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu">☰ Menú</button>
+        <ul class="nav-list" id="menu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="fundamentos.html">Fundamentos</a></li>
+          <li><a href="modelos.html">Modelos</a></li>
+          <li><a href="proveedores.html">Proveedores</a></li>
+          <li><a href="practica.html">Práctica</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+          <li><a href="creador.html" aria-current="page">Creador</a></li>
+        </ul>
+      </div>
+    </nav>
+    <nav class="crumbs wrap" aria-label="Ruta de navegación">
+      <a href="index.html">Inicio</a> / <span aria-current="page">Creador</span>
+    </nav>
+    
+    <main id="contenido">
+    
+      <section class="section">
+        <div class="wrap">
+          <div class="section__head">
+            <span class="eyebrow">06 · Creador</span>
+            <h1 style="font-size: clamp(2rem, 4vw, 3rem)">Sobre quién hizo este sitio</h1>
+          </div>
+          <div class="profile">
+            
+            <div class="profile__photo reveal">
+              <img src="IMG/creador.jpg" alt="Foto del creador del sitio" width="675" height="900" decoding="async" />
+            </div>
+            <div class="reveal">
+              <h2>Sadir Sánchez</h2>
+              <p class="muted">
+                Estudiante · Facultad de Ingeniería de Sistemas Computacionales · Universidad Tecnológica de
+                Panamá
+              </p>
+            
+              <p>
+                Soy estudiante de la facultad de Ingeniería de Sistemas Computacionales en la UTP y estoy en 
+                el curso Desarrollo de Software V. Elegí la programación en la nube porque hoy está detrás 
+                de casi todo lo que usamos: desde una app móvil hasta un servicio de streaming, y quería entender
+                cómo funciona ya que casi nunca lo vemos.
+              </p>
+              <p>
+                Este sitio es mi proyecto del Parcial 2. Está armado con HTML, CSS y JavaScript. Fui probando, 
+                ajustando y corrigiendo sobre la marcha, y tuve en cuenta las reglas de oro de Shneiderman y 
+                las heurísticas de Nielsen para que la navegación fuera clara y cómoda de usar. 
+              </p>
+              <p>
+                Con este trabajo quise explicar la nube de una forma sencilla, con ejemplos y elementos interactivos 
+                como el quiz y el simulador de elasticidad, para que cualquiera pueda entenderla aunque apenas esté
+                empezando. Todavía estoy aprendiendo y espero seguir mejorando con cada proyecto.
+              </p>
+              <div class="skills" aria-label="Tecnologías usadas">
+                <span class="badge">HTML5 semántico</span>
+                <span class="badge">CSS3 (Grid y Flexbox)</span>
+                <span class="badge">JavaScript</span>
+                <span class="badge">Imágenes JPG</span>
+                <span class="badge">Git y GitHub</span>
+                <span class="badge">GitHub Pages</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tint">
+        <div class="wrap">
+          <div class="section__head">
+            <span class="eyebrow">Usabilidad</span>
+            <h2>Cómo apliqué Shneiderman y Nielsen</h2>
+            <p class="muted">Cada regla y heurística con un ejemplo real de este sitio.</p>
+          </div>
+          <div class="grid grid--2">
+            <div>
+              <h3>Ocho reglas de oro de Shneiderman</h3>
+              <details>
+                <summary>1. Buscar la consistencia</summary>
+                <div><p>El header, la navbar y el footer son iguales en las 7 páginas. El azul siempre indica acción (botones, enlaces, tarjetas del inicio) y el amarillo indica énfasis.</p></div>
+              </details>
+              <details>
+                <summary>2. Atajos para usuarios frecuentes</summary>
+                <div><p>Hay un enlace "Saltar al contenido", un botón para volver arriba, un buscador en el glosario, botones de ejemplo en el simulador y navegación con flechas en las pestañas.</p></div>
+              </details>
+              <details>
+                <summary>3. Ofrecer retroalimentación informativa</summary>
+                <div><p>El quiz dice "¡Correcto!" o "No exactamente" y explica la respuesta. El simulador muestra cuántos servidores están encendidos y el estado de la capacidad. El botón Copiar cambia a "¡Copiado!".</p></div>
+              </details>
+              <details>
+                <summary>4. Diseñar diálogos que lleven al cierre</summary>
+                <div><p>El quiz muestra "Pregunta 3 de 8", avanza paso a paso y termina con una pantalla de resultado y un mensaje final.</p></div>
+              </details>
+              <details>
+                <summary>5. Prevenir errores</summary>
+                <div><p>Las opciones del quiz se bloquean después de responder y el control de usuarios del simulador solo permite valores entre 0 y 10 000.</p></div>
+              </details>
+              <details>
+                <summary>6. Permitir deshacer acciones fácilmente</summary>
+                <div><p>El quiz se puede reintentar al terminar. Los acordeones y el menú móvil se cierran con el mismo botón que los abre.</p></div>
+              </details>
+              <details>
+                <summary>7. Dar control al usuario</summary>
+                <div><p>Puedes entrar a cualquier página desde la navbar, avanzar el quiz a tu ritmo y volver con las migas de pan. No hay animaciones obligatorias: se respetan las preferencias de movimiento reducido.</p></div>
+              </details>
+              <details>
+                <summary>8. Reducir la carga de la memoria a corto plazo</summary>
+                <div><p>La página actual se resalta en la navbar y las migas de pan muestran dónde estás. La tabla de proveedores junta las equivalencias en un solo lugar.</p></div>
+              </details>
+            </div>
+            <div>
+              <h3>Diez heurísticas de Nielsen</h3>
+              <details>
+                <summary>1. Visibilidad del estado del sistema</summary>
+                <div><p>La navbar marca la página actual, las migas de pan indican dónde estás y el quiz muestra en qué pregunta vas.</p></div>
+              </details>
+              <details>
+                <summary>2. Relación entre el sistema y el mundo real</summary>
+                <div><p>El sitio explica la nube con la analogía de la red eléctrica y todo el texto está en español sencillo, con los términos técnicos definidos.</p></div>
+              </details>
+              <details>
+                <summary>3. Control y libertad del usuario</summary>
+                <div><p>Siempre puedes volver al inicio desde el logo, usar las migas de pan, el botón de volver arriba o reintentar el quiz.</p></div>
+              </details>
+              <details>
+                <summary>4. Consistencia y estándares</summary>
+                <div><p>Los componentes se repiten igual en todas las páginas (tarjetas, avisos, botones) y los enlaces siguen la convención de color y subrayado.</p></div>
+              </details>
+              <details>
+                <summary>5. Prevención de errores</summary>
+                <div><p>El simulador limita los valores y el quiz bloquea las respuestas ya enviadas para evitar clics repetidos.</p></div>
+              </details>
+              <details>
+                <summary>6. Reconocimiento antes que recuerdo</summary>
+                <div><p>Todas las opciones están visibles con etiquetas de texto. No hay íconos sin explicación y el menú no esconde secciones en pantallas grandes.</p></div>
+              </details>
+              <details>
+                <summary>7. Flexibilidad y eficiencia de uso</summary>
+                <div><p>Quien conoce el sitio puede saltar al contenido, buscar en el glosario o usar el teclado. Quien empieza puede seguir el orden sugerido en el inicio.</p></div>
+              </details>
+              <details>
+                <summary>8. Diseño estético y minimalista</summary>
+                <div><p>Cada sección trata una sola idea, con mucho espacio en blanco y solo dos colores principales. Los colores de estado se usan únicamente para avisos.</p></div>
+              </details>
+              <details>
+                <summary>9. Ayudar a reconocer y corregir errores</summary>
+                <div><p>Si el glosario no encuentra nada, dice "Sin resultados" y sugiere probar con otra palabra. El quiz explica por qué una respuesta era incorrecta.</p></div>
+              </details>
+              <details>
+                <summary>10. Ayuda y documentación</summary>
+                <div><p>La página de Fundamentos tiene un glosario, los avisos explican puntos clave como el cuidado con la factura y cada respuesta del quiz incluye una explicación.</p></div>
+              </details>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <button class="to-top" type="button" aria-label="Volver al inicio de la página">↑</button>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="footer__grid">
+          <div>
+            <h2 class="footer-h">Del Código a la Nube</h2>
+            <p>
+              Sitio educativo sobre programación en la nube (Cloud Computing), creado como Parcial 2 de
+              Desarrollo de Software V.
+            </p>
+          </div>
+          <div>
+            <h2 class="footer-h">Explora</h2>
+            <ul>
+              <li><a href="fundamentos.html">Fundamentos</a></li>
+              <li><a href="modelos.html">Modelos IaaS, PaaS, SaaS</a></li>
+              <li><a href="proveedores.html">Proveedores</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="footer-h">Más</h2>
+            <ul>
+              <li><a href="practica.html">Práctica y código</a></li>
+              <li><a href="quiz.html">Quiz</a></li>
+              <li><a href="creador.html">Sobre el creador</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <span>© 2026 Del Código a la Nube · Universidad Tecnológica de Panamá</span>
+          <span>Facultad de Ingeniería de Sistemas Computacionales</span>
+        </div>
+      </div>
+    </footer>
+    <script src="JS/main.js" defer></script>
+  </body>
+</html>

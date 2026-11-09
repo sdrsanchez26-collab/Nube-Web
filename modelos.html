@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+    <title>Modelos de servicio y despliegue · Del Código a la Nube</title>
+    <meta
+      name="description"
+      content="IaaS, PaaS, SaaS, serverless y modelos de despliegue: pública, privada, híbrida y comunitaria."
+    />
+    <link rel="icon" type="image/jpeg" href="IMG/logo.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="CSS/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <header class="site-header">
+      <div class="wrap site-header__inner">
+        <a class="brand" href="index.html" aria-label="Del Código a la Nube, ir al inicio">
+          <img src="IMG/logo.jpg" alt="" width="44" height="44" />
+          <span class="brand__text">
+            <span class="brand__name">Del Código a la Nube</span>
+            <span class="brand__tag">Programación en la nube · Desarrollo de Software V</span>
+          </span>
+        </a>
+      </div>
+    </header>
+
+    <nav class="site-nav" aria-label="Navegación principal">
+      <div class="wrap site-nav__inner">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu">☰ Menú</button>
+        <ul class="nav-list" id="menu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="fundamentos.html">Fundamentos</a></li>
+          <li><a href="modelos.html" aria-current="page">Modelos</a></li>
+          <li><a href="proveedores.html">Proveedores</a></li>
+          <li><a href="practica.html">Práctica</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+          <li><a href="creador.html">Creador</a></li>
+        </ul>
+      </div>
+    </nav>
+    <nav class="crumbs wrap" aria-label="Ruta de navegación">
+      <a href="index.html">Inicio</a> / <span aria-current="page">Modelos</span>
+    </nav>
+    <main id="contenido">
+      <section class="section">
+        <div class="wrap">
+          <div class="section__head">
+            <span class="eyebrow">02 · Modelos</span>
+            <h1 style="font-size: clamp(2rem, 4vw, 3rem)">
+              Tres formas de consumir la nube, cuatro de desplegarla
+            </h1>
+            <p>
+              Los <strong>modelos de servicio</strong> indican cuánto administras tú, los
+              <strong>modelos de despliegue</strong> indican quién comparte la infraestructura.
+            </p>
+          </div>
+
+          <figure class="fig-box reveal">
+            <img
+              src="IMG/modelos-servicio.jpg"
+              alt="Cuadro comparativo: en on-premise todo lo gestionas tú; en IaaS gestionas desde el sistema operativo; en PaaS solo aplicaciones y datos; en SaaS lo gestiona todo el proveedor"
+              width="720"
+              height="400"
+              loading="lazy"
+            />
+            <figcaption>Cuanto más a la derecha, menos administras y más rápido empiezas.</figcaption>
+          </figure>
+
+          <h2 class="mt-2">Modelos de servicio</h2>
+          <div class="tabs">
+            <div role="tablist" aria-label="Modelos de servicio">
+              <button role="tab" id="t-iaas" aria-controls="p-iaas">IaaS</button>
+              <button role="tab" id="t-paas" aria-controls="p-paas">PaaS</button>
+              <button role="tab" id="t-saas" aria-controls="p-saas">SaaS</button>
+              <button role="tab" id="t-faas" aria-controls="p-faas">Serverless (FaaS)</button>
+            </div>
+            <div role="tabpanel" id="p-iaas" aria-labelledby="t-iaas">
+              <div class="split">
+                <div>
+                  <h3>Infraestructura como servicio</h3>
+                  <p>
+                    Recibes máquinas virtuales, redes y discos. Tú instalas el sistema operativo, el runtime y
+                    tu aplicación. Es el nivel con más control y más responsabilidad.
+                  </p>
+                  <p>
+                    <strong>Ideal para:</strong> migrar aplicaciones existentes, pruebas, cargas que requieren
+                    configuración especial.
+                  </p>
+                  <p class="badges">
+                    <span class="badge">Amazon EC2</span>
+                    <span class="badge">Azure Virtual Machines</span>
+                    <span class="badge">Google Compute Engine</span>
+                  </p>
+                </div>
+                <aside class="callout">
+                  <strong>Analogía</strong>Alquilas un local vacío: tú pones muebles, decoración y atiendes el
+                  negocio.
+                </aside>
+              </div>
+            </div>
+            <div role="tabpanel" id="p-paas" aria-labelledby="t-paas" hidden>
+              <div class="split">
+                <div>
+                  <h3>Plataforma como servicio</h3>
+                  <p>
+                    El proveedor gestiona servidores, sistema operativo y runtime. Tú subes tu código y datos.
+                    Incluye escalado, balanceo y actualizaciones.
+                  </p>
+                  <p>
+                    <strong>Ideal para:</strong> desarrollar y publicar aplicaciones web y APIs rápidamente.
+                  </p>
+                  <p class="badges">
+                    <span class="badge">AWS Elastic Beanstalk</span>
+                    <span class="badge">Azure App Service</span>
+                    <span class="badge">Google App Engine</span>
+                  </p>
+                </div>
+                <aside class="callout">
+                  <strong>Analogía</strong>Alquilas un local amueblado: solo llevas tu producto y atiendes.
+                </aside>
+              </div>
+            </div>
+            <div role="tabpanel" id="p-saas" aria-labelledby="t-saas" hidden>
+              <div class="split">
+                <div>
+                  <h3>Software como servicio</h3>
+                  <p>
+                    Usas una aplicación completa desde el navegador. No instalas ni administras nada; solo la
+                    configuras y la usas.
+                  </p>
+                  <p><strong>Ideal para:</strong> correo, ofimática, CRM, videollamadas.</p>
+                  <p class="badges">
+                    <span class="badge">Gmail</span>
+                    <span class="badge">Microsoft 365</span>
+                    <span class="badge">Zoom</span>
+                    <span class="badge">Slack</span>
+                  </p>
+                </div>
+                <aside class="callout">
+                  <strong>Analogía</strong>Comes en un restaurante: ni cocinas ni lavas los platos.
+                </aside>
+              </div>
+            </div>
+            <div role="tabpanel" id="p-faas" aria-labelledby="t-faas" hidden>
+              <div class="split">
+                <div>
+                  <h3>Funciones como servicio</h3>
+                  <p>
+                    Escribes funciones pequeñas que se ejecutan solo cuando ocurre un evento (una petición
+                    HTTP, un archivo subido, un mensaje en una cola). Pagas por ejecución y la plataforma
+                    escala sola.
+                  </p>
+                  <p>
+                    <strong>Ideal para:</strong> APIs ligeras, procesamiento de archivos, automatizaciones.
+                  </p>
+                  <p class="badges">
+                    <span class="badge">AWS Lambda</span>
+                    <span class="badge">Azure Functions</span>
+                    <span class="badge">Google Cloud Functions</span>
+                  </p>
+                </div>
+                <aside class="callout">
+                  <strong>Analogía</strong>Pides un taxi solo cuando lo necesitas, en lugar de comprar un
+                  auto.
+                </aside>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tint">
+        <div class="wrap">
+          <div class="section__head reveal">
+            <span class="eyebrow">Comparativa</span>
+            <h2>¿Cuánto controlas en cada modelo?</h2>
+          </div>
+          <div class="table-wrap reveal">
+            <table>
+              <caption>
+                Control, esfuerzo y velocidad por modelo
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Modelo</th>
+                  <th scope="col">Control</th>
+                  <th scope="col">Esfuerzo de administración</th>
+                  <th scope="col">Velocidad de arranque</th>
+                  <th scope="col">Ejemplo de uso</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">IaaS</th>
+                  <td>Alto</td>
+                  <td>Alto</td>
+                  <td>Media</td>
+                  <td>Servidor web propio</td>
+                </tr>
+                <tr>
+                  <th scope="row">PaaS</th>
+                  <td>Medio</td>
+                  <td>Medio</td>
+                  <td>Alta</td>
+                  <td>API publicada con un comando</td>
+                </tr>
+                <tr>
+                  <th scope="row">FaaS</th>
+                  <td>Bajo</td>
+                  <td>Bajo</td>
+                  <td>Muy alta</td>
+                  <td>Procesar una imagen subida</td>
+                </tr>
+                <tr>
+                  <th scope="row">SaaS</th>
+                  <td>Mínimo</td>
+                  <td>Mínimo</td>
+                  <td>Inmediata</td>
+                  <td>Correo corporativo</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="wrap">
+          <div class="section__head reveal">
+            <span class="eyebrow">Despliegue</span>
+            <h2>Modelos de despliegue</h2>
+          </div>
+          <figure class="fig-box reveal">
+            <img
+              src="IMG/despliegue.jpg"
+              alt="Esquema de nube pública, nube privada y nube híbrida"
+              width="640"
+              height="300"
+              loading="lazy"
+            />
+            <figcaption>
+              La elección depende de la sensibilidad de los datos, el presupuesto y la normativa.
+            </figcaption>
+          </figure>
+          <div class="grid grid--2 mt-2">
+            <div class="card card--amber reveal">
+              <h3>Nube pública</h3>
+              <p>
+                Infraestructura compartida y operada por un proveedor (AWS, Azure, Google Cloud). Es la más
+                económica y escalable.
+              </p>
+            </div>
+            <div class="card card--amber reveal">
+              <h3>Nube privada</h3>
+              <p>
+                Infraestructura dedicada a una sola organización, dentro de su centro de datos o alojada por
+                un tercero. Más control, más costo.
+              </p>
+            </div>
+            <div class="card card--amber reveal">
+              <h3>Nube híbrida</h3>
+              <p>
+                Combina nube privada y pública. Por ejemplo, datos sensibles en casa y picos de demanda en la
+                nube pública.
+              </p>
+            </div>
+            <div class="card card--amber reveal">
+              <h3>Nube comunitaria</h3>
+              <p>
+                Compartida por varias organizaciones con intereses comunes, como universidades o entidades de
+                gobierno.
+              </p>
+            </div>
+          </div>
+          <aside class="callout reveal">
+            <strong>¿Y multicloud?</strong>No es un modelo de despliegue del NIST, sino una estrategia: usar
+            varios proveedores públicos a la vez para evitar dependencia o aprovechar servicios específicos.
+          </aside>
+        </div>
+      </section>
+
+      <section class="section section--tint">
+        <div class="wrap">
+          <div class="section__head reveal">
+            <span class="eyebrow">Guía de decisión</span>
+            <h2>¿Cuál elegir?</h2>
+          </div>
+          <details open>
+            <summary>Necesito control total del entorno</summary>
+            <div>
+              <p>Elige <strong>IaaS</strong>. Tendrás que parchear, asegurar y escalar tus servidores.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Solo quiero publicar mi aplicación web</summary>
+            <div>
+              <p>Elige <strong>PaaS</strong>. Subes el código y la plataforma se encarga del resto.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Mi carga es esporádica o basada en eventos</summary>
+            <div>
+              <p>
+                Elige <strong>serverless</strong>. Solo pagas cuando se ejecuta y no administras servidores.
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary>Necesito una herramienta ya hecha</summary>
+            <div>
+              <p>Elige <strong>SaaS</strong>. Es la opción más rápida si el producto cubre tu necesidad.</p>
+            </div>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <button class="to-top" type="button" aria-label="Volver al inicio de la página">↑</button>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="footer__grid">
+          <div>
+            <h2 class="footer-h">Del Código a la Nube</h2>
+            <p>
+              Sitio educativo sobre programación en la nube (Cloud Computing), creado como Parcial 2 de
+              Desarrollo de Software V.
+            </p>
+          </div>
+          <div>
+            <h2 class="footer-h">Explora</h2>
+            <ul>
+              <li><a href="fundamentos.html">Fundamentos</a></li>
+              <li><a href="modelos.html">Modelos IaaS, PaaS, SaaS</a></li>
+              <li><a href="proveedores.html">Proveedores</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="footer-h">Más</h2>
+            <ul>
+              <li><a href="practica.html">Práctica y código</a></li>
+              <li><a href="quiz.html">Quiz</a></li>
+              <li><a href="creador.html">Sobre el creador</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <span>© 2026 Del Código a la Nube · Universidad Tecnológica de Panamá</span>
+          <span>Facultad de Ingeniería de Sistemas Computacionales</span>
+        </div>
+      </div>
+    </footer>
+    <script src="JS/main.js" defer></script>
+  </body>
+</html>
