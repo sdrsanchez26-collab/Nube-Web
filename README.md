@@ -2,7 +2,7 @@
 
 Parcial 2 · Desarrollo de Software V · Universidad Tecnológica de Panamá.
 
-Sitio web educativo y completo sobre **Programación en la Nube (Cloud Computing)**, hecho con HTML, CSS y JavaScript propios (sin plantillas ni frameworks de estilos).
+Sitio web educativo y completo sobre **Programación en la Nube (Cloud Computing)**, hecho con HTML, CSS y JavaScript.
 
 ## Páginas
 - `index.html`: inicio, definición, mapa del sitio e historia.
